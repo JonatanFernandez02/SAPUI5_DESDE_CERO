@@ -6,16 +6,13 @@
     <App>
     <pages>
         <Page title="{i18n>appTitle}">
-           <content>
-           <Panel headerText="{i18n>helloPanel}" class="sapUiResponsiveMargin" width="auto">
-                <content>
-                    <Button text="{i18n>showHelloButtonText}" press=".onShowHello" class="sapUiSmallMarginEnd"/>
-                    <Input value="{/recipient/name}" 
-                    width="60%" valueLiveUpdate="true"/>
-                    <Text text="Hello {/recipient/name}" class="sapUiSmallMargin boldElemens"></Text>
-                </content>
-            </Panel>
-        </content>
+        <headerContent>
+             <Button id="helloDialogHeader" icon="sap-icon://action" 
+             text="Apretame cagon" press=".onOpenDialogHeader" class="sapUiSmallMarginEnd"/>
+        </headerContent>
+           <content>  
+                <mvc:XMLView viewName="logaligroup.SAPUI5.view.HelloPanel"/> 
+           </content>
         </Page>
     </pages>
     </App>
