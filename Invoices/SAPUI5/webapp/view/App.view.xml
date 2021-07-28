@@ -8,7 +8,7 @@
         <Page title="{i18n>appTitle}">
         <headerContent>
              <Button id="helloDialogHeader" icon="sap-icon://action" 
-             text="Apretame cagon" press=".onOpenDialogHeader" class="sapUiSmallMarginEnd"/>
+             text="Press Me !" press=".onOpenDialogHeader" class="sapUiSmallMarginEnd"/>
         </headerContent>
            <content>  
                 <mvc:XMLView viewName="logaligroup.SAPUI5.view.HelloPanel"/> 
