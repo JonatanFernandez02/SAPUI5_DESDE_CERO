@@ -4,6 +4,16 @@
     displayBlock="true">
   
     <Page title="{i18n>appTitle}">
+    <landmarkInfo>
+    <PageAccessibleLandmarkInfo 
+    rootRole="Region"
+    rootLabel="{i18n>overviewRootLabel}"
+    contentRole="Main"
+    contentLabel="{i18n>overviewContentLable}"
+    headerRole="Banner"
+    headerLabel="{i18n>overviewHeaderLabel}"
+    />
+    </landmarkInfo>
         <headerContent>
              <Button id="helloDialogHeader" icon="sap-icon://action" 
              text="Press Me !" press=".onOpenDialogHeader" class="sapUiSmallMarginEnd"/>
