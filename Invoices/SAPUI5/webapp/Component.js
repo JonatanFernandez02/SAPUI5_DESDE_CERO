@@ -18,13 +18,15 @@ sap.ui.define([
 
             init: function () {
                 UIComponent.prototype.init.apply(this, arguments);
-
+                //seteamos el datamodel en la vista
                 this.setModel(Models.createRecipient());
 
-                var i18nModel = new ResourceModel({ bundleName: "logaligroup.SAPUI5.i18n.i18n" });
-                this.setModel(i18nModel, "i18n");
+               /*  var i18nModel = new ResourceModel({ bundleName: "logaligroup.SAPUI5.i18n.i18n" });
+                this.setModel(i18nModel, "i18n"); */
 
                 this._helloDialog = new HelloDialog(this.getRootControl());
+                    //create views based on the url / hash o pattern.
+                this.getRouter().initialize();
 
             },
             exit: function () {

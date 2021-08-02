@@ -14,7 +14,7 @@ sap.ui.define([
      * @param {typeof sap.ui.model.Filter} Filter 
      * @param {typeof sap.ui.model.FilterOperator} FilterOperator 
      */
-    function (Controller, JSONModel, InvoicesFormatter,Filter,FilterOperator) {
+    function (Controller, JSONModel, InvoicesFormatter, Filter, FilterOperator) {
 
         return Controller.extend("logaligroup.SAPUI5.controller.InvoicesList", {
 
@@ -28,19 +28,27 @@ sap.ui.define([
                 });
                 this.getView().setModel(oViewModel, "currency");
             },
-            onFilterInvoices : function (oEvent){
+            onFilterInvoices: function (oEvent) {
                 const arrayFilter = [];
                 const sQuery = oEvent.getParameter("query");
 
-                if(sQuery){
-                    arrayFilter.push(new Filter("ProductName",FilterOperator.Contains,sQuery));
+                if (sQuery) {
+                    arrayFilter.push(new Filter("ProductName", FilterOperator.Contains, sQuery));
                 };
 
                 const oList = this.getView().byId("invoiceList");
                 const oBinding = oList.getBinding("items");
                 oBinding.filter(arrayFilter);
 
+            },
+            navigateToDetails: function (oEvent) {
+              const oItem = oEvent.getSource();
+              const oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                oRouter.navTo("Details", {
+     invoicePath: window.encodeURIComponent(oItem.getBindingContext("northwind").getPath().substr(1))
+                });
             }
+
 
         });
     });
